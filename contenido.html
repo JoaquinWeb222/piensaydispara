@@ -1,0 +1,73 @@
+<html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<body bgcolor="EEECDF">
+    <title>Contador de Doble Entrada</title>
+    <style>
+
+p{
+font-family:arial;
+font-size:30;
+color:Red;
+text-align:justify
+}
+
+        table {
+            width:"1000";
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 5px black;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>CUENTA TUS PUNTOS AQUÍ 👇</h1>
+    <table id="contador-tabla">
+    
+        <tbody>
+            <tr>
+                <th>JUGADOR 1</th>
+                <td id="f1c1">0</td>
+
+            </tr>
+            <tr>
+                <th>JUGADOR 2</th>
+                <td id="f2c1">0</td>
+ 
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <label for="fila-select">Selecciona Fila: </label>
+    <select id="fila-select">
+        <option value="f1">JUGADOR 1</option>
+        <option value="f2">JUGADOR 2</option>
+    </select>
+    <label for="columna-select">Selecciona Puntos: </label>
+    <select id="columna-select">
+        <option value="c1">Puntos</option>
+
+    </select>
+    <button id="sumar-boton">✅</button>
+
+    <script>
+        const boton = document.getElementById('sumar-boton');
+        const filaSelect = document.getElementById('fila-select');
+        const columnaSelect = document.getElementById('columna-select');
+
+        boton.addEventListener('click', () => {
+            const fila = filaSelect.value;
+            const columna = columnaSelect.value;
+            const celda = document.getElementById(`${fila}${columna}`);
+            let contador = parseInt(celda.textContent);
+            contador++;
+            celda.textContent = contador;
+        });
+    </script>
+</body>
+</html>
